@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "/vacancies-backend/src/main.ts",
+      "src": "/vacancies-backend/src/main.js",
       "use": "@vercel/node",
       "config": {
         "includeFiles": ["/vacancies-backend/dist/**"]
