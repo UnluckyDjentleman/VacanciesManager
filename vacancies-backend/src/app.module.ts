@@ -10,7 +10,7 @@ import { join } from 'path';
     PrismaModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../', 'vacancies-frontend', 'dist'),
-      exclude: ['api/*'],
+      exclude: ['./api/*'],
     }),
   ],
   controllers: [],
