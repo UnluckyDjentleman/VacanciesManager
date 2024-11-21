@@ -19,14 +19,14 @@ export default class VacanciesApi {
   }
 
   public static async GetVacancyById(id: string) {
-    const resp = await axios.get(import.meta.env.VITE_API_HOST + "/" + id, {
+    const resp = await axios.get(process.env.VITE_API_HOST + "/" + id, {
       withCredentials: true,
     });
     return resp.data;
   }
 
   public static async DeleteVacancy(id: string) {
-    const resp = await axios.delete(import.meta.env.VITE_API_HOST + "/" + id, {
+    const resp = await axios.delete(process.env.VITE_API_HOST + "/" + id, {
       withCredentials: true,
     });
     return resp.data;
@@ -54,7 +54,7 @@ export default class VacanciesApi {
   public static async UpdateVac(id: string, body: Partial<Vacancy>) {
     console.log(body);
     const resp = await axios.put(
-      import.meta.env.VITE_API_HOST + "/" + id,
+      process.env.VITE_API_HOST + "/" + id,
       {
         companyName: body.companyName,
         vacancy: body.vacancy,
