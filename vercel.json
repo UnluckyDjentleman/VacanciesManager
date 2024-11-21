@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "vacancies-frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "vacancies-frontend/build" }
+    },
+    {
+      "src": "vacancies-backend/src/main.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["vacancies-backend/dist/**"]
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/vacancies-backend/src/main.ts" },
+    { "src": "/(.*)", "dest": "/vacancies-frontend/dist/$1" }
+  ]
+}

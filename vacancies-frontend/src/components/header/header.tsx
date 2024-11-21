@@ -10,7 +10,7 @@ export default function Header() {
   const dispatch = useAppDispatch();
   const filter = useAppSelector((state) => state.filter.filter);
   return (
-    <div className={"flex flex-col mb-7"}>
+    <div className={"w-full flex flex-col mb-7 ml-5"}>
       <div
         className={
           "w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center py-2"

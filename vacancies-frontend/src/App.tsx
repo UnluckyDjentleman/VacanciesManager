@@ -1,5 +1,4 @@
 import { useContext, useRef } from "react";
-import "./App.css";
 import { useAppSelector } from "./utils/hooks/useRedux";
 import Vacancy from "./constants/types/vacancy";
 import FilterForVacancies from "./constants/types/filterForVacancies";
@@ -39,7 +38,7 @@ function App() {
   return (
     <ModalProvider>
       <Header></Header>
-      <div className={"flex justify-end"}>
+      <div className={"w-full flex justify-end"}>
         <Button
           color={"green"}
           innerText={"+"}
