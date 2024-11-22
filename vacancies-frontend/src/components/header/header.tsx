@@ -10,10 +10,10 @@ export default function Header() {
   const dispatch = useAppDispatch();
   const filter = useAppSelector((state) => state.filter.filter);
   return (
-    <div className={"w-full flex flex-col mb-7 ml-5"}>
+    <div className={"w-full flex flex-col mb-7"}>
       <div
         className={
-          "w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center py-2"
+          "w-full flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center py-2 mx-auto"
         }
       >
         <div>
@@ -51,7 +51,7 @@ export default function Header() {
       </div>
       <div
         className={
-          "w-full flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-center py-2"
+          "w-full flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-center py-2 mx-auto"
         }
       >
         <div className="w-max">
