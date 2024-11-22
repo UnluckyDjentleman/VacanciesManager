@@ -95,7 +95,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
       >
         Update Vacancy
       </button>
-      {message && <Message message={message} type={"error"} />}
+      {message !== null && <Message message={message} type={"error"} />}
     </form>
   );
 }
