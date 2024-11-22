@@ -31,7 +31,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
       status: status,
       note: note,
     };
-    console.log(body);
+    console.log(message);
     UpdateVacById(el.id, body)
       .then((data: Vacancy) => {
         dispatch(updateVacancy({ vacancy: data }));
