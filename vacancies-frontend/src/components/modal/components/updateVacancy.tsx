@@ -8,6 +8,7 @@ import Select from "../../header/select/select";
 import { UpdateVacById } from "../../../utils/functions/updateVacancy";
 import { updateVacancy } from "../../../store/reducers/vacanciesReducer";
 import { useAppDispatch } from "../../../utils/hooks/useRedux";
+import Message from "../../message/message";
 
 export default function UpdateVacancy({ el }: { el: Vacancy }) {
   const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
   const [maxSalary, setMaxSalary] = useState<number | undefined>(el.maxSalary);
   const [status, setStatus] = useState<VacancyStatus>(el.status);
   const [note, setNote] = useState<string | undefined>(el.note);
+  const [message, setMessage] = useState<string | null>(null);
   async function submitUpdating(
     event: FormEvent<HTMLFormElement>
   ): Promise<void> {
@@ -30,10 +32,10 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
       note: note,
     };
     console.log(body);
-    UpdateVacById(el.id, body).then((data: Vacancy) =>
-      dispatch(updateVacancy({ vacancy: data }))
-    );
-    closeModal();
+    UpdateVacById(el.id, body)
+      .then((data: Vacancy) => dispatch(updateVacancy({ vacancy: data })))
+      .then(() => closeModal())
+      .catch((e) => setMessage(e.response?.data as string));
   }
 
   return (
@@ -91,6 +93,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
       >
         Update Vacancy
       </button>
+      {message && <Message message={message} type={"error"} />}
     </form>
   );
 }

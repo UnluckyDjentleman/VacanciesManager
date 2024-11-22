@@ -26,7 +26,14 @@ export default function useGetAllVacancies(
       })
       .catch((e: AxiosError) => {
         dispatch(setLoad({ load: false }));
-        dispatch(setError({ error: e.message }));
+        dispatch(
+          setError({
+            error:
+              e.response !== undefined
+                ? (e.response?.data as string)
+                : e.message,
+          })
+        );
       });
   }, [dispatch, filterVacancies]);
 

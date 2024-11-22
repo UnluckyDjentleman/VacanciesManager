@@ -8,6 +8,7 @@ import Vacancy from "../../../constants/types/vacancy";
 import { AddNewVacancy } from "../../../utils/functions/addVacancy";
 import { addVacancy } from "../../../store/reducers/vacanciesReducer";
 import { useAppDispatch } from "../../../utils/hooks/useRedux";
+import Message from "../../message/message";
 
 export default function AddVacancy() {
   const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ export default function AddVacancy() {
   const [maxSalary, setMaxSalary] = useState<number | undefined>();
   const [status, setStatus] = useState<VacancyStatus>();
   const [note, setNote] = useState<string | undefined>("");
+  const [message, setMessage] = useState<string | null>(null);
   async function submitAdding(
     event: FormEvent<HTMLFormElement>
   ): Promise<void> {
@@ -30,10 +32,10 @@ export default function AddVacancy() {
       note: note as string,
     };
     console.log(newVac);
-    AddNewVacancy(newVac).then((data: Vacancy) =>
-      dispatch(addVacancy({ vacancy: data }))
-    );
-    closeModal();
+    AddNewVacancy(newVac)
+      .then((data: Vacancy) => dispatch(addVacancy({ vacancy: data })))
+      .then(() => closeModal())
+      .catch((e) => setMessage(e.response?.data as string));
   }
 
   return (
@@ -91,6 +93,7 @@ export default function AddVacancy() {
       >
         Add New Vacancy
       </button>
+      {message && <Message message={message} type={"error"} />}
     </form>
   );
 }
