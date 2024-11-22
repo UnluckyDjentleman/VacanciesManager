@@ -32,13 +32,12 @@ export default function AddVacancy() {
       note: note as string,
     };
     console.log(newVac);
-    try {
-      const data: Vacancy = await AddNewVacancy(newVac);
-      dispatch(addVacancy({ vacancy: data }));
-      closeModal();
-    } catch (e) {
-      setMessage(e.response.data.message);
-    }
+    AddNewVacancy(newVac)
+      .then((data: Vacancy) => {
+        dispatch(addVacancy({ vacancy: data }));
+        closeModal();
+      })
+      .catch((e) => setMessage(e.response?.data as string));
   }
 
   return (
