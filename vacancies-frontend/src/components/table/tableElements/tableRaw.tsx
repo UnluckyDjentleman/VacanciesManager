@@ -21,12 +21,12 @@ export default function TableRaw({ el }: { el: Vacancy }) {
         "py-2 border-y-2 border-gray-200 hover:bg-blue-100 cursor-pointer"
       }
     >
-      <td>{el.companyName}</td>
-      <td>{el.vacancy}</td>
-      <td>
+      <td className="sm:table-cell px-4 py-6 text-center">{el.companyName}</td>
+      <td className="sm:table-cell px-4 py-6 text-center">{el.vacancy}</td>
+      <td className="sm:table-cell px-4 py-6 text-center">
         <Status value={el.status as string} />
       </td>
-      <td>
+      <td className="hidden sm:table-cell px-4 py-6 text-center">
         {el.minSalary}$-{el.maxSalary}$
       </td>
       <td className="hidden sm:table-cell px-4 py-6 text-center">{el.note}</td>
