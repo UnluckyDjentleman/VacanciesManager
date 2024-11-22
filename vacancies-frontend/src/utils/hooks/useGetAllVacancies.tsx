@@ -28,7 +28,7 @@ export default function useGetAllVacancies(
         dispatch(setLoad({ load: false }));
         dispatch(
           setError({
-            error: e.response.data.message,
+            error: e.message,
           })
         );
       });

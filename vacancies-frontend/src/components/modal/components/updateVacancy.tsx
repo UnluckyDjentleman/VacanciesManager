@@ -32,12 +32,13 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
       note: note,
     };
     console.log(body);
-    UpdateVacById(el.id, body)
-      .then((data: Vacancy) => {
-        dispatch(updateVacancy({ vacancy: data }));
-        closeModal();
-      })
-      .catch((e) => setMessage(e.response.data.message));
+    try {
+      const data: Vacancy = await UpdateVacById(el.id, body);
+      dispatch(updateVacancy({ vacancy: data }));
+      closeModal();
+    } catch (e) {
+      setMessage(e.response.data.message);
+    }
   }
 
   return (
