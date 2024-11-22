@@ -12,6 +12,7 @@ import {
 } from "./components/modal/context/modal.context";
 import useGetAllVacancies from "./utils/hooks/useGetAllVacancies";
 import Button from "./components/header/button/button";
+import "./App.css";
 
 function App() {
   const filter = useAppSelector((state) => state.filter.filter);
