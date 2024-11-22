@@ -3,8 +3,8 @@ import VacanciesApi from "../api";
 
 export async function UpdateVacById(id: string, body: Partial<Vacancy>) {
   try {
-    console.log(body);
-    return await VacanciesApi.UpdateVac(id, body);
+    const resp = await VacanciesApi.UpdateVac(id, body);
+    return resp;
   } catch (e) {
     throw e;
   }
