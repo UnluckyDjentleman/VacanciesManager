@@ -23,7 +23,7 @@ export default function TableRaw({ el }: { el: Vacancy }) {
     >
       <td className="sm:table-cell px-4 py-6 text-center">{el.companyName}</td>
       <td className="sm:table-cell px-4 py-6 text-center">{el.vacancy}</td>
-      <td className="sm:table-cell px-4 py-6 text-center">
+      <td className="hidden sm:table-cell px-4 py-6 text-center">
         <Status value={el.status as string} />
       </td>
       <td className="hidden sm:table-cell px-4 py-6 text-center">
