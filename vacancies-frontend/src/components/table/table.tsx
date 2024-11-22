@@ -5,7 +5,7 @@ import TableRaw from "./tableElements/tableRaw";
 
 export default function Table({ items }: { items: Vacancy[] }) {
   return (
-    <table className="w-80">
+    <table className="w-4/5 sm:w-full">
       <TableHeader headers={tableHeaders} />
       {items.map((el) => (
         <TableRaw el={el} />
