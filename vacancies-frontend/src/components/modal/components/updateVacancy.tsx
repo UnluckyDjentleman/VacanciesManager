@@ -35,7 +35,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
     UpdateVacById(el.id, body)
       .then((data: Vacancy) => dispatch(updateVacancy({ vacancy: data })))
       .then(() => closeModal())
-      .catch((e) => setMessage(e.response?.data as string));
+      .catch((e) => setMessage(e.response.data.message));
   }
 
   return (

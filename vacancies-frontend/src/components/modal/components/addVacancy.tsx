@@ -35,7 +35,7 @@ export default function AddVacancy() {
     AddNewVacancy(newVac)
       .then((data: Vacancy) => dispatch(addVacancy({ vacancy: data })))
       .then(() => closeModal())
-      .catch((e) => setMessage(e.response?.data as string));
+      .catch((e) => setMessage(e.response.data.message));
   }
 
   return (

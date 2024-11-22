@@ -24,14 +24,11 @@ export default function useGetAllVacancies(
         dispatch(setVacancies({ vacancies: data }));
         dispatch(setError({ error: null }));
       })
-      .catch((e: AxiosError) => {
+      .catch((e) => {
         dispatch(setLoad({ load: false }));
         dispatch(
           setError({
-            error:
-              e.response !== undefined
-                ? (e.response?.data as string)
-                : e.message,
+            error: e.response.data.message,
           })
         );
       });
