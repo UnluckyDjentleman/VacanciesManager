@@ -49,7 +49,9 @@ function App() {
         </div>
         {load === true && <Loader></Loader>}
         {error === null && vacancies.length !== 0 && (
-          <Table items={defaultVacancies.current}></Table>
+          <section>
+            <Table items={defaultVacancies.current}></Table>
+          </section>
         )}
         {error === null && vacancies.length === 0 && (
           <Message
