@@ -38,7 +38,7 @@ function App() {
 
   return (
     <ModalProvider>
-      <div className={"flex flex-col justify-center"}>
+      <div className={"container mx-auto px-2 md:px-0"}>
         <Header></Header>
         <div className={"w-full flex justify-end"}>
           <Button
