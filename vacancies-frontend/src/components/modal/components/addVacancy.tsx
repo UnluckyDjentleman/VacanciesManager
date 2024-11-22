@@ -33,8 +33,10 @@ export default function AddVacancy() {
     };
     console.log(newVac);
     AddNewVacancy(newVac)
-      .then((data: Vacancy) => dispatch(addVacancy({ vacancy: data })))
-      .then(() => closeModal())
+      .then((data: Vacancy) => {
+        dispatch(addVacancy({ vacancy: data }));
+        closeModal();
+      })
       .catch((e) => setMessage(e.response.data.message));
   }
 
