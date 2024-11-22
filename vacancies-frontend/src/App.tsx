@@ -38,25 +38,27 @@ function App() {
 
   return (
     <ModalProvider>
-      <Header></Header>
-      <div className={"w-full flex justify-end"}>
-        <Button
-          color={"green"}
-          innerText={"+"}
-          onClick={() => viewAddModal()}
-        ></Button>
+      <div className={"flex flex-col justify-center"}>
+        <Header></Header>
+        <div className={"w-full flex justify-end"}>
+          <Button
+            color={"green"}
+            innerText={"+"}
+            onClick={() => viewAddModal()}
+          ></Button>
+        </div>
+        {load === true && <Loader></Loader>}
+        {error === null && vacancies.length !== 0 && (
+          <Table items={defaultVacancies.current}></Table>
+        )}
+        {error === null && vacancies.length === 0 && (
+          <Message
+            message={"Sorry, but we cannot find any vacancy for you"}
+            type={"info"}
+          ></Message>
+        )}
+        {error && <Message message={error as string} type={"error"}></Message>}
       </div>
-      {load === true && <Loader></Loader>}
-      {load === false && vacancies.length !== 0 && (
-        <Table items={defaultVacancies.current}></Table>
-      )}
-      {load === false && vacancies.length === 0 && (
-        <Message
-          message={"Sorry, but we cannot find any vacancy for you"}
-          type={"info"}
-        ></Message>
-      )}
-      {error && <Message message={error as string} type={"error"}></Message>}
     </ModalProvider>
   );
 }
