@@ -1,7 +1,7 @@
 export const tableHeaders = [
   "Company Name",
   "Vacancy",
-  " Status",
+  "Status",
   "Salary",
   "Note",
   "",
