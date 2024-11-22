@@ -6,9 +6,9 @@ export default function TableHeader({ headers }: { headers: string[] }) {
           <th
             key={el}
             className={`sm:table-cell px-4 py-6 text-center ${
-              el === "Note" || el === "Status" || el === "Salary"
-                ? "hidden"
-                : ""
+              el === "Note" ? "hidden" : ""
+            } ${el === "Status" ? "hidden" : ""} ${
+              el === "Salary" ? "hidden" : ""
             }`}
           >
             {el}
