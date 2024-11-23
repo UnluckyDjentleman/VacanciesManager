@@ -24,6 +24,7 @@ export default function Header() {
             onChange={(str: string | undefined) =>
               dispatch(setFilter({ filter: { ...filter, companyName: str } }))
             }
+            required={false}
           ></Input>
         </div>
         <div>
@@ -34,6 +35,7 @@ export default function Header() {
             onChange={(str: string | undefined) =>
               dispatch(setFilter({ filter: { ...filter, vacancy: str } }))
             }
+            required={false}
           ></Input>
         </div>
         <div>
@@ -46,6 +48,7 @@ export default function Header() {
                 | undefined
             ) => dispatch(setFilter({ filter: { ...filter, status: str } }))}
             value={filter.status}
+            required={false}
           ></Select>
         </div>
       </div>
@@ -64,6 +67,7 @@ export default function Header() {
             min={0}
             max={5000}
             step={100}
+            required={false}
           ></Range>
         </div>
         <div className="w-max">
@@ -76,6 +80,7 @@ export default function Header() {
             min={100}
             max={10000}
             step={100}
+            required={false}
           ></Range>
         </div>
       </div>

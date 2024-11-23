@@ -3,9 +3,11 @@ import Option from "./options/option";
 export default function Select({
   onChange,
   value,
+  required,
 }: {
   onChange: (x: VacancyStatus) => void;
   value: VacancyStatus | undefined;
+  required: boolean;
 }) {
   return (
     <select
@@ -18,6 +20,7 @@ export default function Select({
           VacancyStatus[e.currentTarget.value as keyof typeof VacancyStatus]
         )
       }
+      required={required}
     >
       <option value={undefined}>ANY STATUS</option>
       {(Object.keys(VacancyStatus) as Array<keyof typeof VacancyStatus>).map(

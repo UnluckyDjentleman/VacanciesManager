@@ -48,6 +48,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
           placeholder={"Company"}
           value={company}
           onChange={setCompany}
+          required={true}
         />
       </div>
       <div className="mb-4">
@@ -56,11 +57,13 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
           placeholder={"Vacancy"}
           value={vacancy}
           onChange={setVacancy}
+          required={true}
         />
       </div>
       <div className="mb-4">
         <Range
           label={"Min Salary"}
+          required={true}
           value={minSalary}
           onChange={setMinSalary}
           min={0}
@@ -76,10 +79,11 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
           min={100}
           max={10000}
           step={100}
+          required={true}
         />
       </div>
       <div className="mb-4">
-        <Select onChange={setStatus} value={status} />
+        <Select onChange={setStatus} value={status} required={false} />
       </div>
       <div className="mb-4">
         <Input
@@ -87,6 +91,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
           placeholder={"Note"}
           value={note}
           onChange={setNote}
+          required={false}
         />
       </div>
       <button

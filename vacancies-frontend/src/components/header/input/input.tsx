@@ -3,11 +3,13 @@ export default function Input({
   placeholder,
   value,
   onChange,
+  required,
 }: {
   type: string;
   placeholder: string;
   value: string | undefined;
   onChange: (x: string | undefined) => void;
+  required: boolean;
 }) {
   return (
     <>
@@ -19,6 +21,7 @@ export default function Input({
         placeholder={placeholder}
         value={value === undefined ? "" : value}
         onChange={(e) => onChange(e.currentTarget.value)}
+        required={required}
       />
     </>
   );
