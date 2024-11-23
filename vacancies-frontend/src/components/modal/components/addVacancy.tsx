@@ -22,6 +22,7 @@ export default function AddVacancy() {
   const [note, setNote] = useState<string | undefined>("");
   const [message, setMessage] = useState<string | null>(null);
   async function submitAdding(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     try {
       const newVac: Omit<Vacancy, "id"> = {
         companyName: company as string,
