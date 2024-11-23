@@ -39,7 +39,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
       dispatch(updateVacancy({ vacancy: resp }));
       closeModal();
     } catch (e) {
-      setMessage(e.response.data as string);
+      setMessage(e.response.data.message as string);
     }
   }
 

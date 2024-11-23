@@ -38,7 +38,7 @@ export default function AddVacancy() {
       closeModal();
     } catch (e) {
       console.log(e);
-      setMessage(e.response.data as string);
+      setMessage(e.response.data.message as string);
     }
   }
 
