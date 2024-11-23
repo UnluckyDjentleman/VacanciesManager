@@ -33,12 +33,13 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
       setMessage("max salary is lower than min salary");
     }
     console.log(message);
-    UpdateVacById(el.id, body)
-      .then((data: Vacancy) => {
-        dispatch(updateVacancy({ vacancy: data }));
-        closeModal();
-      })
-      .catch((e) => setMessage(e.response.data.message));
+    try {
+      const resp = await UpdateVacById(el.id, body);
+      dispatch(updateVacancy({ vacancy: resp }));
+      closeModal();
+    } catch (e) {
+      setMessage(e.response.data as string);
+    }
   }
 
   return (

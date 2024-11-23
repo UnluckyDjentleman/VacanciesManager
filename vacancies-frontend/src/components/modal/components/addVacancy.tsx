@@ -9,6 +9,7 @@ import { AddNewVacancy } from "../../../utils/functions/addVacancy";
 import { addVacancy } from "../../../store/reducers/vacanciesReducer";
 import { useAppDispatch } from "../../../utils/hooks/useRedux";
 import Message from "../../message/message";
+import { UpdateVacById } from "../../../utils/functions/updateVacancy";
 
 export default function AddVacancy() {
   const dispatch = useAppDispatch();
@@ -30,12 +31,13 @@ export default function AddVacancy() {
       note: note as string,
     };
     console.log(newVac);
-    AddNewVacancy(newVac)
-      .then((data: Vacancy) => {
-        dispatch(addVacancy({ vacancy: data }));
-        closeModal();
-      })
-      .catch((e) => setMessage(e.response?.data as string));
+    try {
+      const resp = await AddNewVacancy(newVac);
+      dispatch(addVacancy({ vacancy: resp }));
+      closeModal();
+    } catch (e) {
+      setMessage(e.response.data as string);
+    }
   }
 
   return (
