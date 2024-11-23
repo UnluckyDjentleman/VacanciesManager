@@ -20,9 +20,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
   const [status, setStatus] = useState<VacancyStatus>(el.status);
   const [note, setNote] = useState<string | undefined>(el.note);
   const [message, setMessage] = useState<string | null>(null);
-  async function submitUpdating(
-    event: FormEvent<HTMLFormElement>
-  ): Promise<void> {
+  function submitUpdating(event: FormEvent<HTMLFormElement>) {
     const body: Partial<Vacancy> = {
       companyName: company,
       vacancy: vacancy,
