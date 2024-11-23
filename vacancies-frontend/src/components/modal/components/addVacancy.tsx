@@ -15,8 +15,8 @@ export default function AddVacancy() {
   const { closeModal } = useContext(ModalContext);
   const [company, setCompany] = useState<string | undefined>("");
   const [vacancy, setVacancy] = useState<string | undefined>("");
-  const [minSalary, setMinSalary] = useState<number | undefined>();
-  const [maxSalary, setMaxSalary] = useState<number | undefined>();
+  const [minSalary, setMinSalary] = useState<number | undefined>(0);
+  const [maxSalary, setMaxSalary] = useState<number | undefined>(0);
   const [status, setStatus] = useState<VacancyStatus>();
   const [note, setNote] = useState<string | undefined>("");
   const [message, setMessage] = useState<string | null>(null);
