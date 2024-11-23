@@ -22,17 +22,17 @@ export default function AddVacancy() {
   const [note, setNote] = useState<string | undefined>("");
   const [message, setMessage] = useState<string | null>(null);
   async function submitAdding(event: FormEvent<HTMLFormElement>) {
-    const newVac: Omit<Vacancy, "id"> = {
-      companyName: company as string,
-      vacancy: vacancy as string,
-      minSalary: minSalary as number,
-      maxSalary: maxSalary as number,
-      status: status as VacancyStatus,
-      note: note as string,
-    };
-    console.log(newVac);
     try {
+      const newVac: Omit<Vacancy, "id"> = {
+        companyName: company as string,
+        vacancy: vacancy as string,
+        minSalary: minSalary as number,
+        maxSalary: maxSalary as number,
+        status: status as VacancyStatus,
+        note: note as string,
+      };
       const resp = await AddNewVacancy(newVac);
+      console.log(resp);
       dispatch(addVacancy({ vacancy: resp }));
       closeModal();
     } catch (e) {

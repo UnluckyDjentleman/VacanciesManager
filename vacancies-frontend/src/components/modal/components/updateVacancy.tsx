@@ -21,20 +21,20 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
   const [note, setNote] = useState<string | undefined>(el.note);
   const [message, setMessage] = useState<string | null>(null);
   async function submitUpdating(event: FormEvent<HTMLFormElement>) {
-    const body: Partial<Vacancy> = {
-      companyName: company,
-      vacancy: vacancy,
-      minSalary: minSalary,
-      maxSalary: maxSalary,
-      status: status,
-      note: note,
-    };
-    if (Number(maxSalary) < Number(minSalary)) {
-      setMessage("max salary is lower than min salary");
-    }
-    console.log(message);
     try {
+      const body: Partial<Vacancy> = {
+        companyName: company,
+        vacancy: vacancy,
+        minSalary: minSalary,
+        maxSalary: maxSalary,
+        status: status,
+        note: note,
+      };
+      if (Number(maxSalary) < Number(minSalary)) {
+        setMessage("max salary is lower than min salary");
+      }
       const resp = await UpdateVacById(el.id, body);
+      console.log(resp);
       dispatch(updateVacancy({ vacancy: resp }));
       closeModal();
     } catch (e) {
