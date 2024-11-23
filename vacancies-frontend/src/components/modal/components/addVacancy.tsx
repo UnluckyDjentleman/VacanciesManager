@@ -37,6 +37,7 @@ export default function AddVacancy() {
       dispatch(addVacancy({ vacancy: resp }));
       closeModal();
     } catch (e) {
+      console.log(e);
       setMessage(e.response.data as string);
     }
   }
