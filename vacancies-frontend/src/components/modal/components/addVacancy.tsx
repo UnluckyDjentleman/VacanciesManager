@@ -48,6 +48,7 @@ export default function AddVacancy() {
           placeholder={"Company"}
           value={company}
           onChange={setCompany}
+          required={true}
         />
       </div>
       <div className="mb-4">
@@ -56,6 +57,7 @@ export default function AddVacancy() {
           placeholder={"Vacancy"}
           value={vacancy}
           onChange={setVacancy}
+          required={true}
         />
       </div>
       <div className="mb-4">
@@ -66,6 +68,7 @@ export default function AddVacancy() {
           min={0}
           max={5000}
           step={100}
+          required={true}
         />
       </div>
       <div className="mb-4">
@@ -76,10 +79,11 @@ export default function AddVacancy() {
           min={100}
           max={10000}
           step={100}
+          required={true}
         />
       </div>
       <div className="mb-4">
-        <Select onChange={setStatus} value={status} />
+        <Select onChange={setStatus} value={status} required={false} />
       </div>
       <div className="mb-4">
         <Input
@@ -87,6 +91,7 @@ export default function AddVacancy() {
           placeholder={"Note"}
           value={note}
           onChange={setNote}
+          required={false}
         />
       </div>
       <button
