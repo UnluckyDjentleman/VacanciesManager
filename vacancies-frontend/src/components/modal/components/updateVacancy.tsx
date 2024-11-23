@@ -20,7 +20,7 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
   const [status, setStatus] = useState<VacancyStatus>(el.status);
   const [note, setNote] = useState<string | undefined>(el.note);
   const [message, setMessage] = useState<string | null>(null);
-  function submitUpdating(event: FormEvent<HTMLFormElement>) {
+  async function submitUpdating(event: FormEvent<HTMLFormElement>) {
     const body: Partial<Vacancy> = {
       companyName: company,
       vacancy: vacancy,
@@ -29,6 +29,9 @@ export default function UpdateVacancy({ el }: { el: Vacancy }) {
       status: status,
       note: note,
     };
+    if (Number(maxSalary) < Number(minSalary)) {
+      setMessage("max salary is lower than min salary");
+    }
     console.log(message);
     UpdateVacById(el.id, body)
       .then((data: Vacancy) => {

@@ -10,11 +10,11 @@ import { removeVacancy } from "../../../store/reducers/vacanciesReducer";
 export default function TableRaw({ el }: { el: Vacancy }) {
   const dispatch = useAppDispatch();
   const { viewUpdateModal } = useContext(ModalContext);
-  const deleteChosen = (id: string) => {
+  async function deleteChosen(id: string) {
     DeleteVac(id).then((data: Vacancy) =>
       dispatch(removeVacancy({ vacancy: data }))
     );
-  };
+  }
   return (
     <tr
       className={
